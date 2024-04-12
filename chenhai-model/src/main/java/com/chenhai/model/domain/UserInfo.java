@@ -1,6 +1,5 @@
 package com.chenhai.model.domain;
 
-import cn.hutool.core.date.DateTime;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -9,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
@@ -33,8 +33,8 @@ public class UserInfo implements Serializable {
     private Integer marriage; // 婚姻状态
     private String tags; // 用户标签：多个用逗号分隔
     private String coverPic; // 封面图片
-    private DateTime created;
-    private DateTime updated;
+    private LocalDateTime created;
+    private LocalDateTime updated;
 
     // 用户状态,1为正常，2为冻结
     @TableField(exist = false)

@@ -22,4 +22,20 @@ public class SettingsApiImpl implements SettingsApi {
         qw.eq("user_id", userId);
         return settingsMapper.selectOne(qw);
     }
+
+    /**
+     * 保存
+     * @param settings
+     */
+    public void save(Settings settings) {
+        settingsMapper.insert(settings);
+    }
+
+    /**
+     * 更新
+     * @param settings
+     */
+    public void update(Settings settings) {
+        settingsMapper.updateById(settings);
+    }
 }

@@ -1,7 +1,10 @@
 package com.chenhai.server.service;
 
 
+import com.chenhai.model.vo.PageResult;
 import com.chenhai.model.vo.SettingsVo;
+
+import java.util.Map;
 
 public interface SettingsService {
     /**
@@ -14,4 +17,18 @@ public interface SettingsService {
      * @param content
      */
     void saveQuestion(String content);
+
+    /**
+     * 通知设置
+     * @param map
+     */
+    void saveSettings(Map map);
+
+    /**
+     * 分页查询黑名单列表
+     * @param page
+     * @param size
+     * @return
+     */
+    PageResult blacklist(int page, int size);
 }

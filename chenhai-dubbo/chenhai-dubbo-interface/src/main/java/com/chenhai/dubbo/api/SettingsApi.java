@@ -10,4 +10,16 @@ public interface SettingsApi {
      * @return
      */
     Settings findByUserId(Long userId);
+
+    /**
+     * 保存
+     * @param settings
+     */
+    void save(Settings settings);
+
+    /**
+     * 更新
+     * @param settings
+     */
+    void update(Settings settings);
 }
