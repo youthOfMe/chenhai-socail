@@ -42,4 +42,27 @@ public class SettiingsServiceImpl implements SettingsService {
         }
         return vo;
     }
+
+    /**
+     * 设置陌生人问题
+     * @param content
+     */
+    public void saveQuestion(String content) {
+        // 1. 获取当前用户ID
+        Long userId = UserHolder.getUserId();
+        // 2. 调用api查询当前用户的陌生人问题
+        Question question = questionApi.findByUserId(userId);
+        // 3. 判断问题是否存在
+        if (question == null) {
+            // 3.1 如果不存在, 保存
+            question = new Question();
+            question.setUserId(userId);
+            question.setTxt(content);
+            questionApi.save(question);
+        } else {
+            // 3.2 如果存在, 更新
+            question.setTxt(content);
+            questionApi.update(question);
+        }
+    }
 }

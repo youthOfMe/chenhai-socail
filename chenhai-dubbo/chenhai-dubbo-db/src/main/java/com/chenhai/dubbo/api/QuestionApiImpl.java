@@ -18,4 +18,12 @@ public class QuestionApiImpl implements QuestionApi {
         qw.eq("user_id", userId);
         return questionMapper.selectOne(qw);
     }
+
+    public void save(Question question) {
+        questionMapper.insert(question);
+    }
+
+    public void update(Question question) {
+        questionMapper.updateById(question);
+    }
 }

@@ -10,4 +10,16 @@ public interface QuestionApi {
      * @return
      */
     Question findByUserId(Long userId);
+
+    /**
+     * 保存
+     * @param question
+     */
+    void save(Question question);
+
+    /**
+     * 更新
+     * @param question
+     */
+    void update(Question question);
 }
