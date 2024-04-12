@@ -1,13 +1,25 @@
 package com.chenhai.dubbo.api;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.chenhai.dubbo.mappers.SettingsMapper;
-import org.apache.dubbo.config.annotation.Service;
+import com.chenhai.model.domain.Settings;
+import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
 
-@Service
+@DubboService
 public class SettingsApiImpl implements SettingsApi {
 
     @Autowired
     private SettingsMapper settingsMapper;
 
+    /**
+     * 根据用户ID查询
+     * @param userId
+     * @return
+     */
+    public Settings findByUserId(Long userId) {
+        QueryWrapper<Settings> qw = new QueryWrapper<>();
+        qw.eq("user_id", userId);
+        return settingsMapper.selectOne(qw);
+    }
 }
